@@ -8,7 +8,13 @@ class SwiftReport < Formula
   depends_on xcode: ["15.0", :build]
 
   def install
-    system "swift", "build", "-c", "release"
+    # Ensure we use the Xcode toolchain Homebrew expects
+    ENV["DEVELOPER_DIR"] = "/Applications/Xcode.app/Contents/Developer"
+
+    # Build without SwiftPM’s sandbox to avoid nested-sandbox issues
+    system "swift", "build", "-c", "release", "--disable-sandbox"
+
+    # Install the built binary
     bin.install ".build/release/swift-report"
   end
 
