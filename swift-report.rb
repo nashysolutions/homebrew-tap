@@ -8,12 +8,10 @@ class SwiftReport < Formula
   depends_on xcode: ["15.0", :build]
 
   def install
-    system "make", "PREFIX=#{prefix}", "install"
+    system "swift", "build", "-c", "release"
+    bin.install ".build/release/swift-report"
   end
 
   test do
-    # Smoke test: should run without crashing and print at least one line
-    output = shell_output("#{bin}/swift-report")
-    assert_match "*", output
-  end
+    system "#{bin}/swift-report"
 end
