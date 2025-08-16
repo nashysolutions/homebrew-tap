@@ -2,7 +2,7 @@ class SwiftReport < Formula
   desc "Print Xcode, macOS and Swift versions in a compact format"
   homepage "https://github.com/nashysolutions/swift-report"
   url "https://github.com/nashysolutions/swift-report/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "938fbebc883bd4207dbaa38fd8a4e2feca3ff8a26aa44936fb7c573a9f079181  swift-report-1.0.0.tar"
+  sha256 "78012486a590b4f2ead08fbd1f1f1fd354614fa4ed15eb4db6a72d4ed84d3e53"
   license "MIT"
 
   depends_on xcode: ["15.0", :build]
